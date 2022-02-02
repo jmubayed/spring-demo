@@ -1,0 +1,23 @@
+package com.example.demo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.util.Collections;
+
+@SpringBootApplication
+public class DemoApplication {
+
+	public static void main(String[] args) {
+		SpringApplication app = new SpringApplication(DemoApplication.class);
+		app.setDefaultProperties(Collections
+				.singletonMap("server.port", "9010"));
+		app.run(args);
+
+		System.out.println("");
+		System.out.println("Url: \t http://localhost:9010/swagger-ui.html\n");
+		System.out.println("");
+
+	}
+}
+
