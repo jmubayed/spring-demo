@@ -14,10 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @RestController
 @RequestMapping("/Test")
@@ -33,10 +30,18 @@ public class ExecuteTest {
             response = ExecuteTest.class
     )
     public ResponseEntity executeTest(@RequestBody String jsonTest){
-        List<String> headers = Arrays.asList("ID", "Name", "Salary", "Status");
-        List<Map<String, Object>> rows = new ArrayList<>();
-        rows.add(Map.of("ID", "1", "Name", "Jim",  "Status", "active"));
-        rows.add(Map.of("ID", "2", "Name", "Sally", "Status", "inactive"));
+        List<String> headers = Arrays.asList("ID", "Name","Status");
+        List<Map<String, String>> rows = new ArrayList<>();
+        rows.add(new HashMap<String, String>(){{
+            put("ID", "1");
+            put("Name", "Jim");
+            put("Status", "active");
+        }});
+        rows.add(new HashMap<String, String>(){{
+            put("ID", "2");
+            put("Name", "Sally");
+            put("Status", "inactive");
+        }});
         stepUtils.setHeadersValues(headers);
         stepUtils.setRowsValues(rows);
         return new ResponseEntity("el test a ido bien ver tabla de resultados -> http://localhost:9010/results", HttpStatus.CREATED);

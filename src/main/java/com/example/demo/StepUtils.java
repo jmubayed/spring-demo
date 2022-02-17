@@ -9,7 +9,7 @@ import java.util.Map;
 public class StepUtils {
 
     private List<String> headersValues;
-    private List<Map<String, Object>> rowsValues;
+    private List<Map<String, String>> rowsValues;
 
     public List<String> getHeadersValues() {
         return headersValues;
@@ -19,11 +19,11 @@ public class StepUtils {
         this.headersValues = headersValues;
     }
 
-    public List<Map<String, Object>> getRowsValues() {
+    public List<Map<String, String>> getRowsValues() {
         return rowsValues;
     }
 
-    public void setRowsValues(List<Map<String, Object>> rowsValues) {
+    public void setRowsValues(List<Map<String, String>> rowsValues) {
         this.rowsValues = rowsValues;
     }
 }
